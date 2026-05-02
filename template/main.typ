@@ -1,4 +1,4 @@
-#import "@preview/clean-dhbw:0.4.0": *
+#import "@preview/clean-dhbw:0.5.0": *
 #import "glossary.typ": glossary-entries
 
 #show: clean-dhbw.with(
@@ -40,7 +40,7 @@ Im folgenden werden einige nützliche Elemente und Funktionen zum Erstellen von 
 
 == Ausdrücke und Abkürzungen
 
-Verwende die `gls`-Funktion, um Ausdrücke aus dem Glossar einzufügen, die dann dorthin verlinkt werden. Ein Beispiel dafür ist: 
+Verwende die `gls`-Funktion, um Ausdrücke aus dem Glossar einzufügen, die dann dorthin verlinkt werden. Ein Beispiel dafür ist:
 
 Im diesem Kapitel wird eine #gls("Softwareschnittstelle") beschrieben. Man spricht in diesem Zusammenhang auch von einem #gls("API"). Die Schnittstelle nutzt Technologien wie das #gls("HTTP").
 
