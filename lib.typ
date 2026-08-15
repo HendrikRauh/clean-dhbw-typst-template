@@ -12,6 +12,8 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
+// ---------- Helper Functions ---------------------------------------
+
 // Best-effort conversion of (simple) content to a plain string, used to split
 // a heading body at word boundaries.
 #let content-to-string(content) = {
@@ -52,12 +54,15 @@
   if result == "" { body } else { result + ellipsis }
 })
 
-// Fonts, defined at module level so they can be shared between `clean-dhbw` and
-// `dhbw-table`. These are re-exported when the package is imported with `*`.
+
+// ---------- Formatting Rules ot Module Level ---------------------------------------
+
+// Fonts, defined at module level. These are re-exported when the package is imported with `*`.
+// Thus they can be shared e.g. between `clean-dhbw` and `dhbw-table`.
 #let body-font = "Source Serif 4"
 #let heading-font = "Source Sans 3"
 
-// Core measure shared with `dhbw-table`.
+// Core measures
 #let body-size = 11pt
 
 // Styled table matching the template's typography. Use this in the document
@@ -75,6 +80,9 @@
   set text(font: heading-font, size: body-size)
   table(..args)
 }
+
+
+// ---------- Start of Template ---------------------------------------
 
 #let clean-dhbw(
   title: none,
