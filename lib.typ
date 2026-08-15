@@ -64,6 +64,7 @@
 
 // Core measures
 #let body-size = 11pt
+#let caption-size = 9pt
 
 // Styled table matching the template's typography. Use this in the document
 // body instead of the built-in `#table`. It applies the DHBW table styling in a
@@ -168,7 +169,7 @@
 
   // customize captions
   set figure.caption(separator: [ -- ], position: bottom)
-  show figure.caption: set text(font: heading-font, size: body-size)
+  show figure.caption: set text(font: heading-font, size: caption-size)
   // keep single-line captions centered and multi-line captions justified,
   // but align the last (dangling) line to the left instead of centering it
   show figure.caption: it => context layout(bounds => {
