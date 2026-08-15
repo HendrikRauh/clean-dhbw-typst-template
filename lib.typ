@@ -161,6 +161,13 @@
   // customize captions
   set figure.caption(separator: [ -- ], position: bottom)
   show figure.caption: set text(font: heading-font, size: body-size)
+  // keep single-line captions centered and multi-line captions justified,
+  // but align the last (dangling) line to the left instead of centering it
+  show figure.caption: it => context layout(bounds => {
+    let last-align = if measure(it).width > bounds.width { left } else { center }
+    set par(justify: true)
+    align(last-align, it)
+  })
 
   // math numbering
   set math.equation(numbering: math-numbering)
