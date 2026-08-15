@@ -71,7 +71,7 @@ Abbildungen und Tabellen (mit entsprechenden Beschriftungen) werden wie folgt er
 
 #figure(
   caption: "Eine Tabelle",
-  table(
+  dhbw-table(
     columns: (1fr, 50%, auto),
     inset: 10pt,
     align: horizon,

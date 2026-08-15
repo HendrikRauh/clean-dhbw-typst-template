@@ -52,6 +52,30 @@
   if result == "" { body } else { result + ellipsis }
 })
 
+// Fonts, defined at module level so they can be shared between `clean-dhbw` and
+// `dhbw-table`. These are re-exported when the package is imported with `*`.
+#let body-font = "Source Serif 4"
+#let heading-font = "Source Sans 3"
+
+// Core measure shared with `dhbw-table`.
+#let body-size = 11pt
+
+// Styled table matching the template's typography. Use this in the document
+// body instead of the built-in `#table`. It applies the DHBW table styling in a
+// local scope, so it no longer collides with packages that build their own
+// tables internally (e.g. `codelst` for code listings).
+//
+// It accepts exactly the same arguments as the built-in `table`, so
+// `#dhbw-table(columns: 2, [A], [B])` works just like `#table(...)`, including
+// `table.header`, `table.cell`, `table.hline`, and automatic `kind: table`
+// detection inside `#figure`.
+#let dhbw-table(..args) = {
+  set table(stroke: (x: none, y: 0.5pt))
+  show table.cell.where(y: 0): set text(weight: "bold")
+  set text(font: heading-font, size: body-size)
+  table(..args)
+}
+
 #let clean-dhbw(
   title: none,
   authors: (:),
@@ -118,9 +142,8 @@
 
   // ---------- Fonts & Related Measures ---------------------------------------
 
-  let body-font = "Source Serif 4"
-  let body-size = 11pt
-  let heading-font = "Source Sans 3"
+  // Fonts and `body-size` are defined at module level (see top of file); the
+  // remaining measures are local to the template.
   let h1-size = 40pt
   let h2-size = 16pt
   let h3-size = 11pt
@@ -282,9 +305,9 @@
 
   // ---------- Table Format ---------------------------------------
 
-  set table(stroke: (x: none, y: 0.5pt))
-  show table: set text(font: heading-font, size: body-size)
-  show table.cell.where(y: 0): set text(weight: "bold")
+  // Table styling is intentionally NOT applied via global show rules, because
+  // those would leak into tables built by other packages (e.g. `codelst`).
+  // Use the `dhbw-table` function (exported from this file) instead of `#table`.
 
 
   // ---------- Heading Format (Part II: H1-H4) ---------------------------------------
