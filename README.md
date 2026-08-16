@@ -102,7 +102,7 @@ CAVEAT: The template hasn't been adapted nor tested for more than two authors (b
 
 `confidentiality-statement-content (content)`: Provide a custom confidentiality statement
 
-`ai-usage-section-content (content)`: Provide custom content for the AI usage section (e.g. a table of used tools); for example usage see `template/main.typ; see also: [Leitlinien für Wissenschaftliche Arbeiten in Bachelorstudiengängen Studienbereich Technik](https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf)
+`ai-usage-section-content (content)`: Provide custom content for the AI usage section (e.g. a table of used tools); for example usage see `template/main.typ`; see also: [Leitlinien für Wissenschaftliche Arbeiten in Bachelorstudiengängen Studienbereich Technik](https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf)
 
 `date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`
 
