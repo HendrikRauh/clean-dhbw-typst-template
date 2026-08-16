@@ -1,4 +1,5 @@
-#import "@preview/clean-dhbw:0.5.0": *
+//#import "@preview/clean-dhbw:0.5.0": *
+#import "../../clean-dhbw-typst-template/lib.typ": *
 #import "glossary.typ": glossary-entries
 
 #show: clean-dhbw.with(
@@ -21,6 +22,17 @@
   university: "Duale Hochschule Baden-Württemberg",
   university-location: "Karlsruhe",
   university-short: "DHBW",
+  ai-usage-section-content: [
+    Folgende Übersicht listet alle für die Erstellung der Bachelor-Arbeit verwendeten KI-basierten Werkzeuge auf und erläutert wie und wofür sie verwendet wurden:
+
+    - ChatGPT
+      - Verständnis von Grundbegriffen im Themenfeld energiereicher Strahlungsarten (Kapitel 3.4)
+      - Recherche und Identifikation von Literaturstellen zu „Auswirkungen energiereicher Strahlen auf das Wachstum von Gänseblümchen“ (Kapitel 4)
+    - Claude Opus 5
+      - Generierung sämtlicher in der Arbeit vorkommender SQL-Statements
+      - Generierung der Bash-Skripte zur Installation und Konfiguration des Systems (s. Anhang)
+    ],
+  show-ai-usage-section: true,
   // for more options check the package documentation (https://typst.app/universe/package/clean-dhbw)
 )
 
@@ -69,6 +81,8 @@ Abbildungen und Tabellen (mit entsprechenden Beschriftungen) werden wie folgt er
 
 === Tabellen
 
+Anstelle der Standard `table`-Funktion gibt es `dhbw-table` mit einer zum restlichen Template passenden Formatierung. `dhbw-table` kann in derselben Art und Weise wie `table` verwendet werden.
+
 #figure(
   caption: "Eine Tabelle",
   dhbw-table(
@@ -92,6 +106,8 @@ Abbildungen und Tabellen (mit entsprechenden Beschriftungen) werden wie folgt er
     text("tetrahedron.svg"), $ sqrt(2) / 12 a^3 $, [$a$: edge length],
   ),
 )<table>
+
+Diese Tabelle hat am Ende noch ein Label `<table>`. Damit kann sie an anderer Stelle im Dokument referenziert werden (s. Abs. "Verweise").
 
 == Programm Quellcode
 
