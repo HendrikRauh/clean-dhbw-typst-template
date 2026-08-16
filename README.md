@@ -6,7 +6,7 @@ You can see an example of how the template looks in this [PDF file](https://gith
 
 ## Introduction and Motivation
 
-In my experience as an end-user (i.e. reader) of documents like Bachelor theses and similar works which are currently produced at DHBW, there is room for improvement with respect to their usability.  There exists a recommendation at DHBW on how to structure and design such documents. I have the impression that some of the usability issues I identified are rooted directly within these recommendations, but others stem from the fact that some recommendations are just not thoroughly followed.
+In my experience as an end-user (i.e. reader) of documents like Bachelor theses and similar works which are currently produced at DHBW, there is room for improvement with respect to their usability. There exists a recommendation at DHBW on how to structure and design such documents. I have the impression that some of the usability issues I identified are rooted directly within these recommendations, but others stem from the fact that some recommendations are just not thoroughly followed.
 
 In order to give an example on how an improved document structure and layout could look like, I have created the present "*Clean DHBW Typst Template*". It is now the official Typst template for Computer Science at DHBW Karlsruhe. But of course anyone interested is welcome to use it too.
 
@@ -29,7 +29,7 @@ Alternatively (if you use Typst on your local computer), you can use the CLI to 
 typst init @preview/clean-dhbw MyFancyThesis
 ```
 
-Typst will create a new directory (`MyFancyThesis` in this example) with all the files needed to get you started.
+Typst will create a new directory (`MyFancyThesis` in this example) with all the files needed to get you started. In order to work correctly, you will also have to install the required fonts (see section "Fonts").
 
 ## Support & Contribution
 
@@ -60,7 +60,7 @@ This template uses the following packages:
 
 - [codelst](https://typst.app/universe/package/codelst): To create code snippets
 - [hydra](https://github.com/tingerrr/hydra): To display the current heading within the header.
-- [glossarium](https://github.com/typst-community/glossarium): For the glossary of the document.
+- [glossarium](https://github.com/typst-community/glossarium): For the glossary (as well as acronyms) of the document.
 
 
 ## Configuration
@@ -82,7 +82,7 @@ This template exports the `clean-dhbw` function with the following named argumen
   - city (str*): City of the company
   - country (str): Country of the company
 
-CAVEAT: The template hasn't been adapted nor tested for more than two authors. 
+CAVEAT: The template hasn't been adapted nor tested for more than two authors (but it has now proven to work well with groups of up to five authors).
 
 `abstract (content)`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
 
@@ -96,13 +96,13 @@ CAVEAT: The template hasn't been adapted nor tested for more than two authors.
 
 `city (str)`: City of the author (only **needed** when `at-university` is `true`; e.g. for a Studienarbeit)
 
-`confidentiality-marker: (dictionary)`: Configure the display of a confidentiality indication on the bottom of the titlepage
+`confidentiality-marker: (dictionary)`: Configure the display of a confidentiality indication on the bottom of the titlepage in order to signal already on the titlepage that the document has a confidentiality statement
 
 - display (bool*): Whether the indication should be shown (`(display: true)`), default is `false`
 
 `confidentiality-statement-content (content)`: Provide a custom confidentiality statement
 
-`ai-usage-section-content (content)`: Provide custom content for the AI usage section (e.g. a table of used tools)
+`ai-usage-section-content (content)`: Provide custom content for the AI usage section (e.g. a table of used tools); for example usage see `template/main.typ; see also: [Leitlinien für Wissenschaftliche Arbeiten in Bachelorstudiengängen Studienbereich Technik](https://www.karlsruhe.dhbw.de/fileadmin/user_upload/documents/content-de/Studiengaenge-Technik/Informatik/191212_Leitlinien_Praxismodule_Studien_Bachelorarbeiten.pdf)
 
 `date (datetime* | array*)`: Provide a datetime object to display one date (e.g. submission date) or a array containing two datetime objects to display a date range (e.g. start and end date of the project), default is `datetime.today()`
 
@@ -126,14 +126,14 @@ CAVEAT: The template hasn't been adapted nor tested for more than two authors.
 
 `show-declaration-of-authorship (bool)`: Whether the declaration of authorship should be shown, default is `true`
 
-`show-ai-usage-section (bool)`: Whether the AI usage section should be shown (placed after glossary and before user-defined appendix), default is `false`
+`show-ai-usage-section (bool)`: Whether the AI usage section should be shown (placed after glossary and before user-defined appendix), default is `false` (if set to `true` there should be some content in `ai-usage-section-content`)
 
 `show-table-of-contents (bool)`: Whether the table of contents should be shown, default is `true`
 
 `supervisor (dictionary*)`: Name of the supervisor at the university and/or company (e.g. supervisor: (company: "John Doe", university: "Jane Doe"))
 
-- company (str): Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
-- university (str): Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
+- `company (str)`: Name of the supervisor at the company (note while the argument is optional at least one of the two arguments must be provided)
+- `university (str)`: Name of the supervisor at the university (note while the argument is optional at least one of the two arguments must be provided)
 
 `titlepage-content (content)`: Provide a custom title page
 
@@ -179,6 +179,9 @@ A typical Bachelor Thesis which has _one author_ and takes place in cooperation 
   university-location: "Karlsruhe",
   university-short: "DHBW",
 ```
+
+For a more complete example see `template/main.typ`.
+
 
 ### A typical configuration for a "Studienarbeit"
 
